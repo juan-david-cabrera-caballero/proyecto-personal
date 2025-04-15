@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a Morat</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="input-section">
+            <h1>¡Bienvenida!</h1>
+            <p>Por favor, inserta tu nombre:</p>
+            <input type="text" id="nameInput" placeholder="Tu nombre aquí">
+            <button id="submitButton">Enviar</button>
+        </div>
+        <div id="message" class="hidden"></div>
+    </div>
+
+    <div class="band-members hidden">
+        <img src="morat.jpg" alt="Morat Band" class="morat-image">
+        <p>¡ES UN PLACER CONOCERTE!</p>
+        <p class="flowers">🌼🌼🌼🌼🌼</p>
+    </div>
+
+    <script>
+        const submitButton = document.getElementById('submitButton');
+        const nameInput = document.getElementById('nameInput');
+        const message = document.getElementById('message');
+        const bandMembers = document.querySelector('.band-members');
+        const inputSection = document.querySelector('.input-section');
+
+        submitButton.addEventListener('click', () => {
+            const name = nameInput.value.trim();
+            if (name) {
+                message.textContent = `¡Hola, ${name}! Soy Juan David.`;
+                message.classList.remove('hidden');
+                bandMembers.classList.remove('hidden');
+                inputSection.classList.add('hidden'); // Oculta el cuadro de entrada y el botón
+            } else {
+                alert('Por favor, ingresa tu nombre.');
+            }
+        });
+    </script>
+</body>
+</html>
